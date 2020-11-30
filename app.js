@@ -1,3 +1,9 @@
+/* -------------------------- 
+Sets Clock
+ -------------------------- */
+
+// const moment = require("./moment");
+
 const clock = document.getElementById('time');
 
 function pad(num) {
@@ -6,7 +12,6 @@ function pad(num) {
     } 
     return num;
 }
-
 
 const setTime = function() {
     const timeNow = "";
@@ -22,5 +27,20 @@ const setTime = function() {
     }
 
 }
+setTime();
 
 setInterval( setTime, 1000);
+
+/* -------------------------- 
+Sets Age
+-------------------------- */ 
+
+
+const myAge = document.getElementById('age');
+
+const birthday = new Date(1987, 12, 3);
+const today = new Date();
+let age = ( today - birthday ) / 1000 / 60 / 60 / 24 / 365.25;
+age = Math.floor(age);
+
+myAge.textContent = `Age: ${age}`;

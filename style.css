@@ -3,5 +3,8 @@ body {
 }
 
 #time {
+    width: 100%;
+    background-color: purple;
     font-weight: bold;
+    color: white;
 }

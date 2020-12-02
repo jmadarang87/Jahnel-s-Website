@@ -1,8 +1,9 @@
 /* -------------------------- 
-Sets Clock
+Sets Clock with callback functions
  -------------------------- */
 
-// const moment = require("./moment");
+
+
 
 const clock = document.getElementById('time');
 
@@ -22,6 +23,9 @@ const setTime = function() {
     if (hh > 12) {
         hh = hh - 12;
         clock.textContent = `The Current Time is: ${hh}:${mm}:${ss}PM`;
+    } else if (hh == 0) {
+        hh = 12;
+        clock.textContent = `The Current Time is: ${hh}:${mm}:${ss}AM`;
     } else {
         clock.textContent = `The Current Time is: ${hh}:${mm}:${ss}AM`;
     }
@@ -35,24 +39,22 @@ setInterval( setTime, 1000);
 Sets Age
 -------------------------- */ 
 
-
 const myAge = document.getElementById('age');
-
 const birthday = new Date(1987, 12, 3);
 let today = new Date();
 let age = ( today - birthday ) / 1000 / 60 / 60 / 24 / 365.25;
 age = Math.floor(age);
 myAge.textContent = `Age: ${age}`;
 
-
 /* -------------------------- 
-Sets Countdown to Birthday!
+Sets Countdown to My Birthday!
 -------------------------- */ 
 
 const countdownText = document.getElementById('countdown');
 
 const birthdayCountdown = function () {
-    let nextBirthday = new Date("Dec 3, 2020").getTime();
+    let nextBirthday = new Date("Dec 3, 2020 00:00:00 CST-1200");
+    Date.parse(nextBirthday);
     const today = new Date();
     let countdown = nextBirthday - today;
     countdown = new Date(countdown);
@@ -60,14 +62,8 @@ const birthdayCountdown = function () {
     let hours = countdown.getHours();
     let minutes = countdown.getMinutes();
     let seconds = countdown.getSeconds();
-
-    // const countdown = `${days} days til my birthday! ${hours} hours til my birthday! 
-    //     ${minutes} minutes til my birthday! ${seconds} seconds til my birthday!`
-
-    const message = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds til my birthday!! `;
-
+    const message = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds til my birthday!!`;
     countdownText.textContent = `${message}`;
-
 };
 
 setInterval(birthdayCountdown, 1000);

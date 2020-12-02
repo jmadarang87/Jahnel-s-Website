@@ -1,10 +1,37 @@
 body {
-    font-family: "helvetica";
+    font-family: "Courier New";
 }
 
+.main-div {
+    max-width: 1500px;
+    margin: 10px;
+    padding: 25px 25px 25px 25px;
+    min-height: 250px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+#intro {
+    background-color: SlateBlue;
+    text-align: center;
+}
+
+#about-me {
+    background-color: darkcyan;
+    text-align: left;
+}
+
+
 #time {
-    width: 100%;
-    background-color: purple;
     font-weight: bold;
-    color: white;
+}
+
+#countdown-fun {
+    background-color: pink;
 }
